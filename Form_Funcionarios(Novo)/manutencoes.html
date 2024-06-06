@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="style2.css">
+</head>
+
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="/imagens/logo/logo.png" alt="">
+        </div>
+        <input type="checkbox" id="nav_check" hidden>
+        <nav>
+            <div class="logo">
+                <img src="/imagens/logo/logo.png" alt="">
+            </div>
+            <ul>
+                <li>
+                    <a href="/Form_Funcionarios(Novo)/header.html" class="active">Header</a>
+                </li>
+                <li>
+                    <a href="/patrimonio">Salas</a>
+                </li>
+                <li>
+                    <a href="">Oficinas</a>
+                </li>
+                <li>
+                    <a href="/Form_Funcionarios(Novo)/manutencoes.html">Manutenções</a>
+                </li>
+                <li>
+                    <a href="/login">Login</a>
+                </li>
+            </ul>
+        </nav>
+        <label for="nav_check" class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </label>
+    </header>
+
+    <div class="container">
+        <h2>Movimentações de Patrimônios</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Solicitante</th>
+                    <th>Origem</th>
+                    <th>Destino</th>
+                    <th>Descrição</th>
+                    <th>Tipo</th>
+                    <th>Status</th>
+                    <th>Data Solicitação</th>
+                    <th>Data Aprovação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="movimentacaoPatrimonio : ${ultimasMovimentacoesPatrimonios}">
+                    <td th:text="${movimentacaoPatrimonio.idMovimentacaoPatrimonio}">ID</td>
+                    <td th:text="${movimentacaoPatrimonio.solicitante.nomeFuncionario}">Solicitante</td>
+                    <td th:text="${movimentacaoPatrimonio.origem}">Origem</td>
+                    <td th:text="${movimentacaoPatrimonio.destino}">Destino</td>
+                    <td th:text="${movimentacaoPatrimonio.descricao}">Descrição</td>
+                    <td th:text="${movimentacaoPatrimonio.tipo}">Tipo</td>
+                    <td th:text="${movimentacaoPatrimonio.status}">Status</td>
+                    <td th:text="${movimentacaoPatrimonio.dataSolicitacao}">Data Solicitação</td>
+                    <td th:text="${movimentacaoPatrimonio.dataAprovacao}">Data Aprovação</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Movimentações de Estoque</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Solicitante</th>
+                    <th>Descrição</th>
+                    <th>Tipo</th>
+                    <th>Status</th>
+                    <th>Data Solicitação</th>
+                    <th>Data Aprovação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="movimentacaoEstoque : ${ultimasMovimentacoesEstoque}">
+                    <td th:text="${movimentacaoEstoque.idMovimentacaoEstoque}">ID</td>
+                    <td th:text="${movimentacaoEstoque.solicitante.nomeFuncionario}">Solicitante</td>
+                    <td th:text="${movimentacaoEstoque.descricao}">Descrição</td>
+                    <td th:text="${movimentacaoEstoque.tipo}">Tipo</td>
+                    <td th:text="${movimentacaoEstoque.status}">Status</td>
+                    <td th:text="${movimentacaoEstoque.dataSolicitacao}">Data Solicitação</td>
+                    <td th:text="${movimentacaoEstoque.dataAprovacao}">Data Aprovação</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div th:insert="~{fragmentos/footer :: footer}"></div>
+</body>
+<script src="/Form_Funcionarios(Novo)/script.js"></script>
+</html>

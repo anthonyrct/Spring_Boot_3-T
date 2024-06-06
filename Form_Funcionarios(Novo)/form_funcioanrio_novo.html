@@ -6,10 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../Form_Funcionarios(Novo)/style.css">
+    <link rel="stylesheet" th:href="@{../fragmento/style2.css}">
 </head>
 
 <body>
     <div class="container">
+        <div th:insert="~{fragmento/header :: header}"></div>
         <div class="title">registrar</div>
         <form action="#">
             <div class="user-details">
